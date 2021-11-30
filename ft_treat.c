@@ -6,7 +6,7 @@
 /*   By: sikang <sikang@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 03:45:50 by sikang            #+#    #+#             */
-/*   Updated: 2021/10/05 16:10:12 by sion             ###   ########.fr       */
+/*   Updated: 2021/11/03 16:48:54 by sion             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ int	ft_treat_pointer(unsigned long long p)
 	char	*nbr;
 	char	*temp;
 	int		i;
+	int		len;
 
 	i = 0;
 	nbr = ft_ull_base(p, "0123456789abcdef");
@@ -32,34 +33,40 @@ int	ft_treat_pointer(unsigned long long p)
 	nbr = ft_strjoin("0x", nbr);
 	free(temp);
 	ft_putstr_fd(nbr, 1);
+	len = ft_strlen(nbr);
 	free(nbr);
-	return (ft_strlen(nbr));
+	return (len);
 }
 
 int	ft_treat_int(int n)
 {
 	char	*nbr;
+	int		len;
 
 	nbr = ft_itoa(n);
 	ft_putstr_fd(nbr, 1);
+	len = ft_strlen(nbr);
 	free(nbr);
-	return (ft_strlen(nbr));
+	return (len);
 }
 
 int	ft_treat_uint(unsigned int n)
 {
 	char	*nbr;
+	int		len;
 
 	nbr = ft_uitoa(n);
 	ft_putstr_fd(nbr, 1);
+	len = ft_strlen(nbr);
 	free(nbr);
-	return (ft_strlen(nbr));
+	return (len);
 }
 
 int	ft_treat_hexa(unsigned int n, int flag)
 {
 	char	*nbr;
 	int		i;
+	int		len;
 
 	i = 0;
 	if (flag == 1)
@@ -67,6 +74,7 @@ int	ft_treat_hexa(unsigned int n, int flag)
 	else
 		nbr = ft_ull_base(n, "0123456789abcdef");
 	ft_putstr_fd(nbr, 1);
+	len = ft_strlen(nbr);
 	free(nbr);
-	return (ft_strlen(nbr));
+	return (len);
 }
